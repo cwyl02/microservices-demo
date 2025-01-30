@@ -284,7 +284,8 @@ spec:
                 - ALL
             privileged: false
             readOnlyRootFilesystem: true
-          image: us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.2
+          # image: us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.2
+          image: pkatira7/microservices-demo-frontend:v0.5.0
           ports:
           - containerPort: 8080
           readinessProbe:
@@ -324,10 +325,12 @@ spec:
             value: "shoppingassistantservice:80"
           # # ENV_PLATFORM: One of: local, gcp, aws, azure, onprem, alibaba
           # # When not set, defaults to "local" unless running in GKE, otherwies auto-sets to gcp
-          # - name: ENV_PLATFORM
-          #   value: "aws"
+          - name: ENV_PLATFORM
+            value: "Nutanix"
           - name: ENABLE_PROFILER
             value: "0"
+          - name: FRONTEND_MESSAGE
+            value: "Brought to you by NKP Kommander. Restrictions DO NOT apply."
           # - name: CYMBAL_BRANDING
           #   value: "true"
           # - name: ENABLE_ASSISTANT
